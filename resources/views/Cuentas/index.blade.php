@@ -20,7 +20,6 @@
                 <th scope="col">Unitario</th>
                 <th scope="col">Total</th>
                 <th scope="col">Vencimiento</th>
-                <th scope="col">Estado</th>
                 <th scope="col">Disponibles</th>
                 <th scope="col">Opciones</th>
             </tr>
@@ -28,14 +27,19 @@
         <tbody>
             @foreach ($cuentas as $c)
                 <tr class="table-light">
-                    <th>{{ $c->nombre }}</th>
+                    <td>{{ $c->nombre }}</td>
                     <td>{{ $c->email_cuenta }}</td>
                     <td>{{ $c->password }}</td>
-                    <td>{{ $c->valor_unitario }}</td>
-                    <td>{{ $c->valor_total }}</td>
-                    <th>{{ $c->vencimiento_pago }}</th>
-                    <th>{{ $c->pago_status }}</th>
-                    <th>{{ $c->cuentas_disponibles }}</th>
+                    <td>{{ number_format($c->valor_unitario,0,'','.')  }}</td>
+                    <td>{{ number_format($c->valor_total,0,'','.')  }}</td>
+                    <td>
+                        @if($c->vencimiento_pago< now())
+                            <span class="badge bg-danger">Vencido</span>
+                        @else
+                            <span class="badge bg-success"> Todo ok</span>
+                        @endif
+                    </td>
+                    <td> @if( $c->cuentas_disponibles ==0 ) <span class="badge bg-danger">No disponible</span>  @else <span class="badge bg-success"> Disponibles</span>  @endif </td>
                     <td>
                         <a href="#" class="btn btn-warning btn-sm">Editar</a>
                         <a href="#" class="btn btn-danger btn-sm">Borrar</a>

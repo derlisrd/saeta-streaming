@@ -17,6 +17,7 @@ class CreateClientesTable extends Migration
             $table->id();
             $table->string('doc')->unique();
             $table->string('nombre_completo');
+            $table->string('tel')->nullable();
             $table->timestamps();
         });
     }
