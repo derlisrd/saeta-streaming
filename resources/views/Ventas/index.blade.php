@@ -23,7 +23,7 @@
             @foreach ($ventas as $v)
                 <tr class="table-light">
                     <th>{{ $v->cliente->nombre_completo }}</th>
-                    <td>{{ $v->cuenta->email_cuenta }}</td>
+                    <td>{{ $v->cuenta->nombre . ' ' . $v->cuenta->email_cuenta }}</td>
                     <td>{{ number_format($v->pago,0,'','.') }}</td>
                     <td>{{ date('d-m-Y', strtotime($v->vencimiento));  }}</td>
                     <td>
