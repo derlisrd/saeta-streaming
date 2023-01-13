@@ -27,7 +27,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::get('clientes/create',[ClientesController::class,'create'])->name('clientes.create');
     Route::post('clientes/create',[ClientesController::class,'store'])->name('clientes.store');
     Route::get('cliente/{id}',[ClientesController::class,'edit'])->name('cliente.edit');
-    Route::put('cliente/{id}?',[ClientesController::class,'update'])->name('cliente.update');
+    Route::put('cliente/{id}',[ClientesController::class,'update'])->name('cliente.update');
     Route::delete('cliente/{id}',[ClientesController::class,'destroy'])->name('cliente.destroy');
 
     Route::get('cuentas',[CuentasController::class,'index'])->name('cuentas');

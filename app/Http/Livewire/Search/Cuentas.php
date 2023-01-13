@@ -33,7 +33,9 @@ class Cuentas extends Component
             $searchTerm = '%'.$this->search.'%';
             $this->cuentas = Cuenta::orderBy('nombre','asc')
             ->where('nombre','like',$searchTerm)
-            ->orWhere('email_cuenta','like',$searchTerm)->offset(0)->limit(10)
+            ->orWhere('email_cuenta','like',$searchTerm)
+            ->where('cuentas_disponibles','>',0)
+            ->offset(0)->limit(10)
             ->get();
             $this->showdiv = true;
         }

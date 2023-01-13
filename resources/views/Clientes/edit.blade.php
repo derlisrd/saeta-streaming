@@ -12,14 +12,19 @@
 @csrf
 <div class="card rounded">
     <div class="card-content px-4">
-        <div class="form-group mt-4">
+        <div class="form-floating my-4">
             <input autofocus autocomplete="off" name="doc" value="{{ $cliente->doc }}" required class="form-control" />
-            <small class="form-text text-muted">Documento</small>
+            <label class="form-text text-muted">Documento</label>
         </div>
 
-        <div class="form-group mt-4">
+        <div class="form-floating my-4">
             <input autocomplete="off" name="nombre_completo" required value="{{ $cliente->nombre_completo }}" class="form-control" />
-            <small class="form-text text-muted">Nombre completo</small>
+            <label class="form-text text-muted">Nombre completo</label>
+        </div>
+
+        <div class="form-floating my-4">
+            <input autocomplete="off" id="tel" type="tel" placeholder="Telefono" name="tel" required value="{{ $cliente->tel }}" class="form-control" />
+            <label for="tel">Teléfono</label>
         </div>
 
         <div class="form-group my-4">
