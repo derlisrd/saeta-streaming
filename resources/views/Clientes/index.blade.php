@@ -16,14 +16,16 @@
             <tr>
                 <th scope="col">Documento</th>
                 <th scope="col">Nombre</th>
+                <th scope="col">Teléfono</th>
                 <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($clientes as $c)
                 <tr class="table-light">
-                    <th scope="row">{{ $c->doc }}</th>
+                    <td >{{ $c->doc }}</td>
                     <td>{{ $c->nombre_completo }}</td>
+                    <td>{{ $c->tel }}</td>
                     <td>
                         <a href="{{ route('cliente.edit',$c->id) }}" class="btn btn-warning btn-sm">Editar</a>
                         <form action="{{ route('cliente.destroy',$c->id) }}" class="d-inline formulario-eliminar" method="post" >
