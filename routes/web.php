@@ -33,6 +33,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::get('cuentas',[CuentasController::class,'index'])->name('cuentas');
     Route::get('cuentas/create',[CuentasController::class,'create'])->name('cuentas.create');
     Route::post('cuentas/create',[CuentasController::class,'store'])->name('cuentas.store');
+    Route::get('cuentas/utilizadas/{id}',[CuentasController::class,'cuentas_utilizadas'])->name('cuentas.utilizadas');
 
     Route::get('ventas',[VentasController::class,'index'])->name('ventas');
     Route::get('ventas/create',[VentasController::class,'create'])->name('ventas.create');

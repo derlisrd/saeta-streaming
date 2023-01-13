@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cuenta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CuentasController extends Controller
 {
@@ -49,5 +50,22 @@ class CuentasController extends Controller
 
         return redirect()->route('cuentas')->with('saved',true);
 
+    }
+
+
+    public function cuentas_utilizadas(Request $r){
+
+        $id = $r->id;
+
+        $cuenta = Cuenta::find($id);
+
+        $utilizadas = DB::table('ventas')
+        ->select('clientes.nombre_completo','clientes.tel','ventas.vencimiento')
+        ->join('cuentas','cuentas.id','=','ventas.cuenta_id')
+        ->join('clientes','ventas.cliente_id','=','clientes.id')
+        ->where(['cuentas.id' => $id])
+        ->orderByDesc('clientes.id')->get();
+
+        return view('Cuentas.utilizadas',compact('utilizadas','cuenta'));
     }
 }
