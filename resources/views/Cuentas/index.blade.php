@@ -39,7 +39,7 @@
                             <span class="badge bg-success"> Todo ok</span>
                         @endif
                     </td>
-                    <td> @if( $c->cuentas_disponibles ==0 ) <span class="badge bg-danger">No disponible</span>  @else <span class="badge bg-success"> Disponibles</span>  @endif </td>
+                    <td> @if( $c->cuentas_disponibles ==0 ) <span class="badge bg-danger">No disponible</span>  @else <span class="badge bg-success"> {{ $c->cuentas_disponibles }} Disponibles</span>  @endif </td>
                     <td>
                         <a href="#" class="btn btn-warning btn-sm">Editar</a>
                         <a href="#" class="btn btn-danger btn-sm">Borrar</a>
