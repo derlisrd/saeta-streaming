@@ -30,6 +30,7 @@ class ClientesController extends Controller
         $cliente = Cliente::find($r->id);
         $cliente->nombre_completo = $r->nombre_completo;
         $cliente->doc = $r->doc;
+        $cliente->tel = $r->tel;
         $cliente->update();
 
         return redirect()->route('clientes')->with('actualizado',true);
@@ -48,6 +49,7 @@ class ClientesController extends Controller
         $datos = [
             'nombre_completo'=> $r->nombre_completo,
             'doc'=>$r->doc,
+            'tel'=>$r->tel
         ];
 
         Cliente::create($datos);

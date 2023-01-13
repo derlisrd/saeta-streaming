@@ -21,6 +21,8 @@ class CreateVentasTable extends Migration
             $table->boolean('status_pago')->default(0);
             $table->date('fecha_pago');
             $table->date('vencimiento');
+            $table->string('forma_pago')->nullable();
+            $table->string('ref')->nullable();
             $table->timestamps();
         });
     }
