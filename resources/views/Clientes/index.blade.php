@@ -25,13 +25,42 @@
                     <th scope="row">{{ $c->doc }}</th>
                     <td>{{ $c->nombre_completo }}</td>
                     <td>
-                        <a href="#" class="btn btn-warning btn-sm">Editar</a>
-                        <a href="#" class="btn btn-danger btn-sm">Borrar</a>
+                        <a href="{{ route('cliente.edit',$c->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <form action="{{ route('cliente.destroy',$c->id) }}" class="d-inline formulario-eliminar" method="post" >
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-
-
 @endsection
+
+@section('scripts')
+    <script>
+        @if (session('eliminado'))
+            Swal.fire('Borrado!','Tristin ya se eliminó, chau','success')
+        @endif
+
+        @if (session('actualizado'))
+            Swal.fire('Actualizado!','Cliente actualizado correctamente','success')
+        @endif
+    </script>
+    <script>
+        $('.formulario-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+            title: 'Borrar',
+            text:'Desea borrar este cliente?',
+            showCancelButton: true,
+            }).then((result) => {
+            if (result.isConfirmed) {
+                this.submit();
+            }
+            })
+        });
+    </script>
+@endsection
+

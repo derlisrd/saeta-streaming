@@ -17,6 +17,26 @@ class ClientesController extends Controller
         return view('Clientes.create');
     }
 
+    public function edit($id){
+        $cliente = Cliente::find($id);
+        return view('Clientes.edit',compact('cliente'));
+    }
+    public function update(Request $r){
+        $r->validate([
+            'nombre_completo'=> ['required'],
+            'doc'=>['required',"unique:clientes,doc,$r->id"],
+        ]);
+
+        $cliente = Cliente::find($r->id);
+        $cliente->nombre_completo = $r->nombre_completo;
+        $cliente->doc = $r->doc;
+        $cliente->update();
+
+        return redirect()->route('clientes')->with('actualizado',true);
+    }
+
+
+
 
     public function store (Request $r){
         $r->validate([
@@ -35,5 +55,12 @@ class ClientesController extends Controller
         return redirect()->route('clientes');
 
     }
+
+    public function destroy($id){
+        $cliente = Cliente::find($id);
+        $cliente->delete();
+        return redirect()->route('clientes')->with('eliminado',true);
+    }
+
 
 }
