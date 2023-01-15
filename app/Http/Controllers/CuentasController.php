@@ -15,6 +15,40 @@ class CuentasController extends Controller
         return view('Cuentas.index',compact('cuentas'));
     }
 
+    public function edit($id){
+        $cuenta = Cuenta::find($id);
+        return view ('Cuentas.edit',compact('cuenta'));
+    }
+
+    public function update(Request $r){
+        $id = $r->id;
+        $r->validate([
+            'nombre'=> ['required'],
+            'email_cuenta'=>['required','email',"unique:cuentas,email_cuenta,$id,id"],
+            'valor_unitario'=>['required','numeric'],
+            'valor_total'=>['required','numeric'],
+            'password'=>['required'],
+            'pago_status'=>['required'],
+            'fecha_pago'=>['required','date'],
+            'vencimiento_pago'=>['required','date'],
+        ]);
+        $c = Cuenta::find($id);
+
+        $c->nombre=$r->nombre;
+        $c->email_cuenta=$r->email_cuenta;
+        $c->valor_unitario=$r->valor_unitario;
+        $c->valor_total=$r->valor_total;
+        $c->password=$r->password;
+        $c->pago_status=$r->pago_status;
+        $c->fecha_pago=$r->fecha_pago;
+        $c->vencimiento_pago=$r->vencimiento_pago;
+
+        $c->update();
+
+        return redirect()->route('cuentas')->with('updated',true);
+
+    }
+
     public function create(){
         return view('Cuentas.create');
     }

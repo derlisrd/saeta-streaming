@@ -42,7 +42,7 @@
                     <td> @if( $c->cuentas_disponibles ==0 ) <span class="badge bg-danger">No disponible</span>  @else <span class="badge bg-success"> {{ $c->cuentas_disponibles }} Disponibles</span>  @endif </td>
                     <td>
                         <a href="{{ route('cuentas.utilizadas',$c->id) }}" class="btn btn-info btn-sm">Ver</a>
-                        <a href="#" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{{ route('cuentas.edit',$c->id) }}" class="btn btn-warning btn-sm">Editar</a>
                         <a href="#" class="btn btn-danger btn-sm">Borrar</a>
                     </td>
                 </tr>
