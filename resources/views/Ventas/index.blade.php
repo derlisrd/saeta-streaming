@@ -15,6 +15,8 @@
                 <th scope="col">Cuenta</th>
                 <th scope="col">Pago</th>
                 <th scope="col">Fecha venc.</th>
+                <th scope="col">PIN</th>
+                <th scope="col">Forma de pago</th>
                 <th scope="col">Vencido</th>
                 <th scope="col">Opciones</th>
             </tr>
@@ -26,6 +28,8 @@
                     <td>{{ $v->cuenta->nombre . ' ' . $v->cuenta->email_cuenta }}</td>
                     <td>{{ number_format($v->pago,0,'','.') }}</td>
                     <td>{{ date('d-m-Y', strtotime($v->vencimiento));  }}</td>
+                    <td>{{ $v->pin_cuenta }}</td>
+                    <td>{{ $v->forma_pago . ' ' . $v->ref }}</td>
                     <td>
                         @if($v->vencimiento< now())
                             <span class="badge bg-danger">Vencido</span>
@@ -34,12 +38,14 @@
                         @endif
                     </td>
                     <td>
+                        @if($v->vencimiento< now())
                         <a href="{{ route('ventas.renovar',$v->id) }}" class="btn btn-warning">Renovar</a>
                         <form action="{{ route('ventas.destroy',$v->id) }}" class="d-inline formulario-eliminar" method="post" >
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-outline-danger">Borrar</button>
                         </form>
+                        @endif
                     </td>
                 </tr>
             @endforeach

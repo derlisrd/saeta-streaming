@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cuenta;
+use App\Models\FormasPago;
 use App\Models\Informe;
 use App\Models\Venta;
 use Illuminate\Http\Request;
@@ -16,7 +17,10 @@ class VentasController extends Controller
     }
 
     public function create(){
-        return view('Ventas.create');
+
+        $formas = FormasPago::all();
+
+        return view('Ventas.create',compact('formas'));
     }
 
     public function store (Request $r){
@@ -26,7 +30,8 @@ class VentasController extends Controller
             'pago'=>['required','numeric'],
             'fecha_pago'=>['required','date'],
             'vencimiento'=>['required','date'],
-            'status_pago'=>['required']
+            'status_pago'=>['required'],
+            'forma_pago'=>['required']
         ]);
         $datos = [
             'cliente_id'=> $r->cliente_id,
@@ -34,7 +39,10 @@ class VentasController extends Controller
             'pago'=>$r->pago,
             'vencimiento'=>$r->vencimiento,
             'status_pago'=>$r->status_pago,
-            'fecha_pago'=>$r->fecha_pago
+            'fecha_pago'=>$r->fecha_pago,
+            'pin_cuenta'=>$r->pin_cuenta,
+            'forma_pago'=>$r->forma_pago,
+            'ref'=>$r->ref
         ];
         $venta= Venta::create($datos);
         Informe::create([

@@ -11,7 +11,8 @@ class Venta extends Model
 
     protected $fillable = [
         'cuenta_id','cliente_id',
-        'pago','status_pago','vencimiento','fecha_pago'
+        'pago','status_pago','vencimiento','fecha_pago',
+        'pin_cuenta','forma_pago','ref'
     ];
 
     public function cliente(){

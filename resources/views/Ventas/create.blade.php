@@ -5,11 +5,14 @@
 
 @section('container')
 
-<h3>Registrar Venta</h3>
+
 <form method="post" action="{{ route('ventas.store') }}">
 @csrf
 
 <div class="row">
+    <div class="col-12">
+        <h3 class="mt-5">Registrar Venta</h3>
+    </div>
     <div class="col-12 col-sm-12 col-md-6">
         @error('cliente_id')
         <div class="alert alert-dismissible alert-danger">
@@ -61,6 +64,28 @@
             <label role="button" class="form-check-label" for="no_pagado">
               No pagado
             </label>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-6">
+        <div class="form-floating my-4">
+            <input type="text" autocomplete="off" placeholder="PIN" name="pin_cuenta" value="{{ old('pin_cuenta') }}" required class="form-control" />
+            <label>PIN</label>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-3">
+        <div class="form-group">
+            <select class="form-select my-4" name="forma_pago" id="forma_pago">
+              @foreach ($formas as $f)
+              <option value="{{ $f->id }}">{{ $f->metodo }}</option>
+              @endforeach
+            </select>
+          </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-3">
+        <div class="form-floating my-4">
+            <input type="text" autocomplete="off" placeholder="Referencia" name="ref" value="{{ old('ref') }}" required class="form-control" />
+            <label>Referencia u obs</label>
         </div>
     </div>
 

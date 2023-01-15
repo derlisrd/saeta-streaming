@@ -1,4 +1,4 @@
-<div>
+<div class="my-4">
     @empty(!$selected)
     <div class="alert alert-info">
         {{ $nombre }}  {{ $email_cuenta }}

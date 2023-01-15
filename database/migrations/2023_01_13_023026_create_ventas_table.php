@@ -22,7 +22,7 @@ class CreateVentasTable extends Migration
             $table->date('fecha_pago');
             $table->date('vencimiento');
             $table->string('pin_cuenta')->nullable();
-            $table->string('forma_pago')->nullable();
+            $table->bigInteger('forma_pago')->nullable();
             $table->string('ref')->nullable();
             $table->timestamps();
         });

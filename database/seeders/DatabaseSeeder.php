@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\FormasPago;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -24,6 +25,15 @@ class DatabaseSeeder extends Seeder
             'type'=>0,
             'active'=>true,
             'password'=>Hash::make(env('PASS_INITIAL'))
+        ]);
+        FormasPago::create([
+            'metodo'=>'Efectivo'
+        ]);
+        FormasPago::create([
+            'metodo'=>'Giros'
+        ]);
+        FormasPago::create([
+            'metodo'=>'Transferencia'
         ]);
     }
 }

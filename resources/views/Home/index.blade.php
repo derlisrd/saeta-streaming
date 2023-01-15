@@ -44,15 +44,17 @@
         <table class="table table-hover mt-4">
             <thead>
                 <tr>
+                    <th scope="col">Cliente</th>
                     <th scope="col">Pago</th>
-                    <th scope="col">Fecha</th>
+                    <th scope="col">Fecha Pago</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($informes as $i)
                     <tr class="table-light">
+                        <th>{{ $i->nombre_completo }}</th>
                         <th>{{ $i->valor }}</th>
-                        <td>{{ $i->venta->fecha_pago ?? $i->created_at}}</td>
+                        <td>{{ $i->fecha_pago ?? $i->created_at}}</td>
                     </tr>
                 @endforeach
             </tbody>
