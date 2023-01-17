@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/login','/administrador/home');
-Route::view('/login','Auth.login')->name('login')->middleware('guest');
+Route::view('/administrador','Auth.login')->name('login')->middleware('guest');
 Route::post('/login',[LoginController::class,'login'])->name('login.submit');
 
 Route::group(['prefix'=>'administrador','middleware'=>['auth']],function(){
