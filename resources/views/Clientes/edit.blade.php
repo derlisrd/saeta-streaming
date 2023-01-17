@@ -28,7 +28,7 @@
         </div>
 
         <div class="form-group my-4">
-            <button type="submit" class="btn btn-outline-success">Registrar</button>
+            <button type="submit" class="btn btn-outline-success">Actualizar</button>
         </div>
     </div>
 </div>

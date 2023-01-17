@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/login','/admin');
-Route::view('/admin','Auth.login')->name('login')->middleware('guest');
+Route::redirect('/login','/administrador/home');
+Route::view('/login','Auth.login')->name('login')->middleware('guest');
 Route::post('/login',[LoginController::class,'login'])->name('login.submit');
 
-Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
+Route::group(['prefix'=>'administrador','middleware'=>['auth']],function(){
     Route::get('home',[HomeController::class,'index'])->name('home');
 
     Route::get('clientes',[ClientesController::class,'index'])->name('clientes');
