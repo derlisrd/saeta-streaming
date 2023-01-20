@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClientesController extends Controller
 {
 
-    public function index(){
-        $clientes = Cliente::all();
+    public function index(Request $r){
+
+        $clientes = Cliente::paginate($r->page *10);
         return view('Clientes.index',compact('clientes'));
     }
 
@@ -37,6 +39,19 @@ class ClientesController extends Controller
     }
 
 
+    public function cuentas(Request $r){
+
+        $id = $r->id;
+        $cuentas = DB::table('cuentas')
+        ->select('cuentas.nombre','cuentas.email_cuenta','clientes.nombre_completo','ventas.vencimiento','ventas.pin_cuenta')
+        ->join('ventas','ventas.cuenta_id','=','cuentas.id')
+        ->join('clientes','ventas.cliente_id','=','clientes.id')
+        ->where('cliente_id',$r->id)
+        ->get();
+
+
+        return view ('Clientes.cuentas',compact('cuentas'));
+    }
 
 
     public function store (Request $r){

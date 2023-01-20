@@ -27,6 +27,7 @@
                     <td>{{ $c->nombre_completo }}</td>
                     <td>{{ $c->tel }}</td>
                     <td>
+                        <a href="{{ route('cliente.cuentas',$c->id) }}" class="btn btn-success btn-sm">Ver cuentas</a>
                         <a href="{{ route('cliente.edit',$c->id) }}" class="btn btn-warning btn-sm">Editar</a>
                         <form action="{{ route('cliente.destroy',$c->id) }}" class="d-inline formulario-eliminar" method="post" >
                             @csrf
@@ -38,6 +39,9 @@
             @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+        {!! $clientes->links() !!}
+    </div>
 @endsection
 
 @section('scripts')

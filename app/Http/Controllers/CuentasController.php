@@ -94,7 +94,7 @@ class CuentasController extends Controller
         $cuenta = Cuenta::find($id);
 
         $utilizadas = DB::table('ventas')
-        ->select('clientes.nombre_completo','clientes.tel','ventas.vencimiento')
+        ->select('clientes.nombre_completo','clientes.tel','ventas.vencimiento','ventas.pin_cuenta')
         ->join('cuentas','cuentas.id','=','ventas.cuenta_id')
         ->join('clientes','ventas.cliente_id','=','clientes.id')
         ->where(['cuentas.id' => $id])

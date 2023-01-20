@@ -17,6 +17,7 @@
         <thead>
             <tr>
                 <th scope="col">Nombre</th>
+                <th scope="col">PIN</th>
                 <th scope="col">Tel</th>
                 <th scope="col">Fecha Venc.</th>
                 <th scope="col">Vencido</th>
@@ -27,6 +28,7 @@
             @foreach ($utilizadas as $u)
                 <tr class="table-light">
                     <td>{{ $u->nombre_completo }}</td>
+                    <td>{{ $u->pin_cuenta }}</td>
                     <td>{{ $u->tel }}</td>
                     <td>{{ date('d-m-Y', strtotime($u->vencimiento)); }}</td>
                     <td>

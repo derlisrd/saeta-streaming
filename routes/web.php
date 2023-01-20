@@ -24,11 +24,13 @@ Route::group(['prefix'=>'administrador','middleware'=>['auth']],function(){
     Route::get('home',[HomeController::class,'index'])->name('home');
 
     Route::get('clientes',[ClientesController::class,'index'])->name('clientes');
+    Route::get('clientes/page/{page}',[ClientesController::class,'index'])->name('clientes.paginate');
     Route::get('clientes/create',[ClientesController::class,'create'])->name('clientes.create');
     Route::post('clientes/create',[ClientesController::class,'store'])->name('clientes.store');
     Route::get('cliente/{id}',[ClientesController::class,'edit'])->name('cliente.edit');
     Route::put('cliente/{id}',[ClientesController::class,'update'])->name('cliente.update');
     Route::delete('cliente/{id}',[ClientesController::class,'destroy'])->name('cliente.destroy');
+    Route::get('cliente/{id}/cuentas',[ClientesController::class,'cuentas'])->name('cliente.cuentas');
 
     Route::get('cuentas',[CuentasController::class,'index'])->name('cuentas');
     Route::get('cuentas/create',[CuentasController::class,'create'])->name('cuentas.create');
