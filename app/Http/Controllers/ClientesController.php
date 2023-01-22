@@ -11,9 +11,35 @@ class ClientesController extends Controller
 
     public function index(Request $r){
 
-        $clientes = Cliente::paginate($r->page *10);
-        return view('Clientes.index',compact('clientes'));
+        $limit = 12;
+        $currentPage = $r->page ?? 1;
+        $page = $r->page ? (($r->page-1) * $limit) : 0;
+
+        $clientes = Cliente::offset($page)
+            ->limit($limit)
+            ->orderBy('id','desc')->get();
+        $count = Cliente::all()->count();
+        $pages = round( $count / $limit);
+
+        $nextPage = $currentPage<$pages ? $currentPage + 1 : null;
+        $prevPage = ($currentPage - 1)>0 ? $currentPage - 1 : null;
+
+        return view('Clientes.index',compact('clientes','nextPage','prevPage'));
     }
+
+    public function search(Request $r){
+
+        $termSearch = '%'.$r->search.'%';
+        $nextPage = null; $prevPage = null;
+        $clientes = Cliente::orderBy('nombre_completo','asc')->where([
+            [
+                'nombre_completo','like',$termSearch
+            ]
+            ])->get();
+
+        return view('Clientes.index',compact('clientes','nextPage','prevPage'));
+    }
+
 
     public function create(){
         return view('Clientes.create');

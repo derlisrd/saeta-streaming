@@ -24,6 +24,7 @@ Route::group(['prefix'=>'administrador','middleware'=>['auth']],function(){
     Route::get('home',[HomeController::class,'index'])->name('home');
 
     Route::get('clientes',[ClientesController::class,'index'])->name('clientes');
+    Route::post('clientes',[ClientesController::class,'search'])->name('clientes.search');
     Route::get('clientes/page/{page}',[ClientesController::class,'index'])->name('clientes.paginate');
     Route::get('clientes/create',[ClientesController::class,'create'])->name('clientes.create');
     Route::post('clientes/create',[ClientesController::class,'store'])->name('clientes.store');
