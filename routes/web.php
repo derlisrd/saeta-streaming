@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CajasController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\CuentasController;
 use App\Http\Controllers\HomeController;
@@ -32,6 +33,13 @@ Route::group(['prefix'=>'administrador','middleware'=>['auth']],function(){
     Route::put('cliente/{id}',[ClientesController::class,'update'])->name('cliente.update');
     Route::delete('cliente/{id}',[ClientesController::class,'destroy'])->name('cliente.destroy');
     Route::get('cliente/{id}/cuentas',[ClientesController::class,'cuentas'])->name('cliente.cuentas');
+
+    Route::get('cajas',[CajasController::class,'index'])->name('cajas');
+    Route::get('cajas/create',[CajasController::class,'create'])->name('cajas.create');
+    Route::post('cajas/create',[CajasController::class,'store'])->name('cajas.store');
+    Route::get('cajas/{id}',[CajasController::class,'edit'])->name('cajas.edit');
+    Route::put('cajas/{id}',[CajasController::class,'update'])->name('cajas.update');
+    Route::delete('caja/{id}',[CajasController::class,'destroy'])->name('cajas.destroy');
 
     Route::get('cuentas',[CuentasController::class,'index'])->name('cuentas');
     Route::get('cuentas/create',[CuentasController::class,'create'])->name('cuentas.create');

@@ -19,6 +19,10 @@
             <i class="fas fa-tv"></i>Cuentas
         </a>
 
+        <a href="{{ route('cajas') }}" class="dashboard-nav-item {{ request()->routeIs('cajas*') ? 'active' : '' }}">
+            <i class="fas fa-money-bill"></i>Cajas
+        </a>
+
         <a href="{{ route('clientes') }}" class="dashboard-nav-item {{ request()->routeIs('clientes*') ? 'active' : '' }}">
             <i class="fas fa-users"></i>Clientes
         </a>
