@@ -11,7 +11,7 @@ class ClientesController extends Controller
 
     public function index(Request $r){
 
-        $limit = 12;
+        $limit = 30;
         $currentPage = $r->page ?? 1;
         $page = $r->page ? (($r->page-1) * $limit) : 0;
 
