@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Caja;
 use App\Models\Cuenta;
 use App\Models\FormasPago;
 use App\Models\Informe;
@@ -19,14 +20,15 @@ class VentasController extends Controller
     public function create(){
 
         $formas = FormasPago::all();
-
-        return view('Ventas.create',compact('formas'));
+        $cajas = Caja::all();
+        return view('Ventas.create',compact('formas','cajas'));
     }
 
     public function store (Request $r){
         $r->validate([
             'cliente_id'=> ['required'],
             'cuenta_id'=>['required'],
+            'caja_id'=>['required'],
             'pago'=>['required','numeric'],
             'fecha_pago'=>['required','date'],
             'vencimiento'=>['required','date'],
@@ -36,6 +38,7 @@ class VentasController extends Controller
         $datos = [
             'cliente_id'=> $r->cliente_id,
             'cuenta_id'=>$r->cuenta_id,
+            'caja_id'=>$r->caja_id,
             'pago'=>$r->pago,
             'vencimiento'=>$r->vencimiento,
             'status_pago'=>$r->status_pago,
@@ -45,6 +48,15 @@ class VentasController extends Controller
             'ref'=>$r->ref
         ];
         $venta= Venta::create($datos);
+
+        $caja = Caja::find($r->caja_id);
+
+        $nuevo_monto = $caja->monto + $r->pago;
+
+        $caja->monto = $nuevo_monto;
+
+        $caja->update();
+
         Informe::create([
             'valor'=>$r->pago,
             'venta_id'=>$venta->id

@@ -67,11 +67,20 @@
         </div>
     </div>
 
-    <div class="col-12 col-sm-12 col-md-6">
+    <div class="col-12 col-sm-12 col-md-3">
         <div class="form-floating my-4">
             <input type="text" autocomplete="off" placeholder="PIN" name="pin_cuenta" value="{{ old('pin_cuenta') }}" required class="form-control" />
             <label>PIN</label>
         </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-3">
+        <div class="form-group">
+            <select class="form-select my-4" name="caja_id" id="caja_id">
+              @foreach ($cajas as $c)
+              <option value="{{ $c->id }}">{{ $c->nombre }}</option>
+              @endforeach
+            </select>
+          </div>
     </div>
     <div class="col-12 col-sm-12 col-md-3">
         <div class="form-group">
@@ -84,7 +93,7 @@
     </div>
     <div class="col-12 col-sm-12 col-md-3">
         <div class="form-floating my-4">
-            <input type="text" autocomplete="off" placeholder="Referencia" name="ref" value="{{ old('ref') }}" required class="form-control" />
+            <input type="text" autocomplete="off" placeholder="Referencia" name="ref" value="{{ old('ref') }}" class="form-control" />
             <label>Referencia u obs</label>
         </div>
     </div>
