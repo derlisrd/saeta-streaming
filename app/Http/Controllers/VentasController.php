@@ -6,6 +6,7 @@ use App\Models\Caja;
 use App\Models\Cuenta;
 use App\Models\FormasPago;
 use App\Models\Informe;
+use App\Models\Movimiento;
 use App\Models\Venta;
 use Illuminate\Http\Request;
 
@@ -47,22 +48,25 @@ class VentasController extends Controller
             'forma_pago'=>$r->forma_pago,
             'ref'=>$r->ref
         ];
-        $venta= Venta::create($datos);
+        Venta::create($datos);
 
         $caja = Caja::find($r->caja_id);
-
         $nuevo_monto = $caja->monto + $r->pago;
-
         $caja->monto = $nuevo_monto;
-
         $caja->update();
 
-        Informe::create([
-            'valor'=>$r->pago,
-            'venta_id'=>$venta->id
-        ]);
+
+
+
         $cuenta = Cuenta::find($r->cuenta_id);
         $cuenta->cuentas_disponibles = $cuenta->cuentas_disponibles - 1;
+        Movimiento::create([
+            'caja_id'=>$r->caja_id,
+            'monto'=>$r->pago,
+            'fecha'=>$r->fecha_pago,
+            'tipo_movimiento'=>1,
+            'descripcion'=>'Venta de perfil de '.$cuenta->nombre
+        ]);
         $cuenta->update();
         return redirect()->route('ventas');
     }

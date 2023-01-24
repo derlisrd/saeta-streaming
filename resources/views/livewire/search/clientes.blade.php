@@ -1,10 +1,5 @@
 <div class="my-4">
-    @empty(!$selected)
-    <div class="alert alert-warning">
-        {{ $nombre_completo }}  {{ $doc }}
-    </div>
-    <input type="hidden" name="cliente_id" value="{{ $cliente_id }}" />
-    @endempty
+
     <div class="search-box">
         <div class="form-floating">
             <input class="form-control" autofocus name="search" autocomplete="off" wire:model="search" wire:keyup="SearchResult" placeholder="Buscar cliente..."/>
@@ -20,5 +15,11 @@
             @endif
         </ul>
         @endif
+        @empty(!$selected)
+        <div class="alert alert-warning my-2">
+            {{ $nombre_completo }}  {{ $doc }}
+        </div>
+        <input type="hidden" name="cliente_id" value="{{ $cliente_id }}" />
+        @endempty
 </div>
 

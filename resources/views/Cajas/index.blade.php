@@ -25,7 +25,7 @@
                         <tr class="table-light">
                             <td>{{ $c->id }}</td>
                             <td>{{ $c->nombre }}</td>
-                            <td>{{ $c->monto }}</td>
+                            <td>{{ number_format($c->monto,0,'','.') }}</td>
                             <td>
 
                             </td>

@@ -22,6 +22,9 @@
         <a href="{{ route('cajas') }}" class="dashboard-nav-item {{ request()->routeIs('cajas*') ? 'active' : '' }}">
             <i class="fas fa-money-bill"></i>Cajas
         </a>
+        <a href="{{ route('movimientos') }}" class="dashboard-nav-item {{ request()->routeIs('movimientos*') ? 'active' : '' }}">
+            <i class="fas fa-money-check"></i>Movimientos
+        </a>
 
         <a href="{{ route('clientes') }}" class="dashboard-nav-item {{ request()->routeIs('clientes*') ? 'active' : '' }}">
             <i class="fas fa-users"></i>Clientes

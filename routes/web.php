@@ -5,9 +5,11 @@ use App\Http\Controllers\CajasController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\CuentasController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MovimientosController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\VentasController;
+use App\Models\Movimiento;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +42,9 @@ Route::group(['prefix'=>'administrador','middleware'=>['auth']],function(){
     Route::get('cajas/{id}',[CajasController::class,'edit'])->name('cajas.edit');
     Route::put('cajas/{id}',[CajasController::class,'update'])->name('cajas.update');
     Route::delete('caja/{id}',[CajasController::class,'destroy'])->name('cajas.destroy');
+
+
+    Route::get('movimientos',[MovimientosController::class,'index'])->name('movimientos');
 
     Route::get('cuentas',[CuentasController::class,'index'])->name('cuentas');
     Route::get('cuentas/create',[CuentasController::class,'create'])->name('cuentas.create');

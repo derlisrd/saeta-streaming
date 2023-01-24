@@ -1,0 +1,444 @@
+
+CREATE TABLE `clientes` (
+  `id` bigint UNSIGNED NOT NULL,
+  `doc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nombre_completo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tel` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `doc`, `nombre_completo`, `tel`, `created_at`, `updated_at`) VALUES
+(1, '2257081', 'Jorge Rafael Gonzalez', NULL, '2023-01-13 07:04:17', '2023-01-13 07:04:17'),
+(2, '1', 'Andres Cabrera', NULL, '2023-01-13 07:04:24', '2023-01-13 07:04:24'),
+(3, '2', 'Ricardo Paredes', NULL, '2023-01-13 07:04:31', '2023-01-13 07:04:31'),
+(4, '4', 'Ross Vazquez', '09', '2023-01-13 07:04:41', '2023-01-15 01:28:14'),
+(6, '45', 'Ivan Samudio (ross vazquez)', NULL, '2023-01-13 07:06:39', '2023-01-13 07:06:39'),
+(7, '123', 'Rocio Franco', '0983 217 709', '2023-01-13 07:09:13', '2023-01-13 09:45:03'),
+(8, '451', 'Familia Ayala', NULL, '2023-01-13 07:32:42', '2023-01-13 07:32:42'),
+(9, '355', 'Marcelo Acuña', '0975 815 395', '2023-01-13 08:18:43', '2023-01-13 08:18:43'),
+(10, '1344', 'Diana Lopez', '0975 432 173', '2023-01-13 08:25:37', '2023-01-13 08:25:37'),
+(11, '134', 'Luz Rodriguez', '0972 570 285', '2023-01-13 08:28:40', '2023-01-13 08:28:40'),
+(12, '244', 'Andrea Rolon (Diana Lopez)', '0', '2023-01-13 08:29:40', '2023-01-13 08:29:40'),
+(13, '13444', 'Ayala (Diana Lopez)', '0', '2023-01-13 08:33:35', '2023-01-13 08:33:35'),
+(14, '2444', 'Raquel (Diana Lopez)', '0', '2023-01-13 08:35:35', '2023-01-13 08:35:35'),
+(15, '244333', 'Amalia Meza Dental Spa', '0973 405 058', '2023-01-13 08:41:30', '2023-01-13 08:41:30'),
+(16, '34343', 'Montserrat', '0972 258 745', '2023-01-13 08:43:48', '2023-01-13 08:43:48'),
+(17, '124433', 'Arnaldo Salinas', '0983 901 076', '2023-01-13 08:48:03', '2023-01-13 08:48:03'),
+(18, '35435', 'Vivi Hival', '0986 965600', '2023-01-13 09:00:46', '2023-01-13 09:00:46'),
+(19, '24324', 'Jose Hold', '0983 125 794', '2023-01-13 09:02:01', '2023-01-13 09:02:01'),
+(20, '244454', 'Fátima Aquino', '0973 856769', '2023-01-13 09:03:45', '2023-01-13 09:03:45'),
+(21, '34353', 'Sanny Sandoval', '0973 553752', '2023-01-13 09:06:51', '2023-01-13 09:06:51'),
+(22, '1344144', 'Luis Ruiz Diaz', '0986 604 688', '2023-01-13 09:08:54', '2023-01-13 09:08:54'),
+(23, '3535345', 'Isais Santacruz Gym', '0986 294 150', '2023-01-13 09:13:04', '2023-01-13 09:13:04'),
+(24, '3534', 'Liz (Diana Lopez)', '0', '2023-01-13 09:18:19', '2023-01-13 09:18:19'),
+(25, '434', 'Javier Lopez Gym', '0984 300 232', '2023-01-13 09:29:07', '2023-01-13 09:29:07'),
+(26, '35443', 'Tulio (Diana Lopez)', '0', '2023-01-13 09:31:46', '2023-01-13 09:31:46'),
+(27, '2323', 'Cabrera (Diana Lopez)', '0', '2023-01-13 10:00:41', '2023-01-13 10:00:41'),
+(28, '35353', 'Luana Pereira', '0982 407 473', '2023-01-13 10:02:35', '2023-01-13 10:02:35'),
+(29, '343', 'Sandro (Diana Lopez)', '0', '2023-01-13 10:49:49', '2023-01-13 10:49:49'),
+(30, '23344', 'Claudia Silva y Arami', '0983514100', '2023-01-14 18:42:25', '2023-01-14 18:42:25'),
+(31, '442332', 'Julio Encina', '0991 371 978', '2023-01-15 22:40:22', '2023-01-15 22:40:22'),
+(32, '32444', 'Elias Rojas', '0993 258 492', '2023-01-16 21:45:24', '2023-01-16 21:45:24'),
+(33, '37490160', 'Mario Vargas', '0', '2023-01-21 01:44:30', '2023-01-21 01:44:30'),
+(34, '2334212', 'Liz Estigarribia', '0973112928', '2023-01-22 09:16:48', '2023-01-22 09:16:48'),
+(35, '20393', 'Natalia Aguilar', '0984913894', '2023-01-22 19:44:38', '2023-01-22 19:44:38'),
+(36, '1111', 'Andrea Silvero', '0984 295 428', '2023-01-23 05:33:43', '2023-01-23 05:33:43'),
+(37, '4958578398', 'Arami Esteche', '0994 949 028', '2023-01-23 20:09:47', '2023-01-23 20:09:47'),
+(38, '39393939', 'Danna Samudio', '0973 591 889', '2023-01-23 21:22:31', '2023-01-23 21:22:31'),
+(39, '5', 'Sally Ayala', '0973 146 158', '2023-01-23 22:15:07', '2023-01-23 22:15:07');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cuentas`
+--
+
+CREATE TABLE `cuentas` (
+  `id` bigint UNSIGNED NOT NULL,
+  `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_cuenta` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `valor_unitario` double DEFAULT NULL,
+  `valor_total` double DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pago_status` tinyint(1) NOT NULL DEFAULT '0',
+  `fecha_pago` date NOT NULL,
+  `vencimiento_pago` date NOT NULL,
+  `cuentas_disponibles` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `cuentas`
+--
+
+INSERT INTO `cuentas` (`id`, `nombre`, `email_cuenta`, `valor_unitario`, `valor_total`, `password`, `pago_status`, `fecha_pago`, `vencimiento_pago`, `cuentas_disponibles`, `created_at`, `updated_at`) VALUES
+(1, 'NETFLIX 1', 'netflix1@saetatienda.com', 30000, 110000, 'jm2022cp23', 1, '2022-12-30', '2023-01-30', 0, '2023-01-13 07:03:17', '2023-01-23 23:31:36'),
+(2, 'HBO 1', 'hbo1@saetatienda.com', 25000, 50000, 'htdiM44yAn', 1, '2022-12-23', '2023-01-23', 0, '2023-01-13 07:36:24', '2023-01-22 09:17:27'),
+(3, 'Disney Plus 1 y Star Plus 1', 'disney1@saetatienda.com', 25000, 118000, 'htdiM44yAn', 1, '2022-12-30', '2023-01-30', 2, '2023-01-13 07:40:33', '2023-01-13 10:03:56'),
+(4, 'Netflix 7', 'netflix7@saetatienda.com', 30000, 110000, 'jk1022pc23', 1, '2023-01-12', '2023-02-12', 0, '2023-01-13 07:42:37', '2023-01-20 21:22:03'),
+(5, 'SPOTIFY 1', 'spotify1@saetatienda.com', 25000, 75000, 'S9d1e5.xx', 1, '2022-12-24', '2023-01-24', 2, '2023-01-13 08:04:04', '2023-01-13 09:29:45'),
+(6, 'NETFLIX 2', 'netflix2@saetatienda.com', 30000, 115000, 'jk1022pc23', 1, '2023-01-06', '2023-02-06', 1, '2023-01-13 08:38:09', '2023-01-22 19:42:39'),
+(7, 'NETFLIX 10 SAETA', 'netflix10@saetatienda.com', 30000, 115000, 'jkm206cp', 1, '2023-01-12', '2023-02-12', 0, '2023-01-13 08:59:27', '2023-01-21 04:11:51'),
+(8, 'Amazon Prime', 'derlisruizdiaz@hotmail.com', 30000, 20000, 'S9d1e5.xx', 1, '2023-01-09', '2023-02-09', 2, '2023-01-15 21:52:11', '2023-01-15 22:41:10'),
+(9, 'NETFLIX 11', 'netflix11@saetatienda.com', 30000, 115000, 'jme2023cp', 1, '2023-01-22', '2023-02-22', 4, '2023-01-23 05:22:59', '2023-01-23 21:23:19'),
+(10, 'HBO 2', 'hbo2@conpororo.com', 25000, 50000, 'jm256hbo', 1, '2023-01-23', '2023-02-23', 5, '2023-01-23 22:14:38', '2023-01-23 22:14:38');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint UNSIGNED NOT NULL,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `formas_pagos`
+--
+
+CREATE TABLE `formas_pagos` (
+  `id` bigint UNSIGNED NOT NULL,
+  `metodo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `formas_pagos`
+--
+
+INSERT INTO `formas_pagos` (`id`, `metodo`, `created_at`, `updated_at`) VALUES
+(1, 'Efectivo', '2023-01-15 01:23:25', '2023-01-15 01:23:25'),
+(2, 'Giros', '2023-01-15 01:23:25', '2023-01-15 01:23:25'),
+(3, 'Transferencia', '2023-01-15 01:23:25', '2023-01-15 01:23:25');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `informes`
+--
+
+CREATE TABLE `informes` (
+  `id` bigint UNSIGNED NOT NULL,
+  `venta_id` bigint UNSIGNED DEFAULT NULL,
+  `valor` double NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `informes`
+--
+
+INSERT INTO `informes` (`id`, `venta_id`, `valor`, `created_at`, `updated_at`) VALUES
+(1, NULL, 30000, '2023-01-13 07:33:54', '2023-01-13 07:33:54'),
+(2, NULL, 30000, '2023-01-13 07:48:53', '2023-01-13 07:48:53'),
+(3, NULL, 30000, '2023-01-13 07:50:02', '2023-01-13 07:50:02'),
+(4, NULL, 30000, '2023-01-13 07:51:05', '2023-01-13 07:51:05'),
+(5, 5, 25000, '2023-01-13 07:58:08', '2023-01-13 07:58:08'),
+(6, 6, 25000, '2023-01-13 08:15:55', '2023-01-13 08:15:55'),
+(7, 7, 25000, '2023-01-13 08:21:25', '2023-01-13 08:21:25'),
+(8, 8, 20000, '2023-01-13 08:23:16', '2023-01-13 08:23:16'),
+(9, 9, 0, '2023-01-13 08:26:29', '2023-01-13 08:26:29'),
+(10, 10, 30000, '2023-01-13 08:31:23', '2023-01-13 08:31:23'),
+(11, 11, 30000, '2023-01-13 08:34:31', '2023-01-13 08:34:31'),
+(12, NULL, 30000, '2023-01-13 08:39:16', '2023-01-13 08:39:16'),
+(13, 13, 30000, '2023-01-13 08:42:04', '2023-01-13 08:42:04'),
+(14, NULL, 30000, '2023-01-13 08:45:18', '2023-01-13 08:45:18'),
+(15, 15, 30000, '2023-01-13 08:46:35', '2023-01-13 08:46:35'),
+(16, 16, 30000, '2023-01-13 08:48:55', '2023-01-13 08:48:55'),
+(17, 17, 30000, '2023-01-13 08:52:19', '2023-01-13 08:52:19'),
+(18, 18, 20000, '2023-01-13 09:01:23', '2023-01-13 09:01:23'),
+(19, 19, 30000, '2023-01-13 09:04:40', '2023-01-13 09:04:40'),
+(20, 20, 20000, '2023-01-13 09:08:09', '2023-01-13 09:08:09'),
+(21, 21, 25000, '2023-01-13 09:09:27', '2023-01-13 09:09:27'),
+(22, 22, 25000, '2023-01-13 09:13:43', '2023-01-13 09:13:43'),
+(23, 23, 30000, '2023-01-13 09:26:20', '2023-01-13 09:26:20'),
+(24, 24, 20000, '2023-01-13 09:29:45', '2023-01-13 09:29:45'),
+(25, 25, 25000, '2023-01-13 09:32:17', '2023-01-13 09:32:17'),
+(26, 26, 30000, '2023-01-13 09:38:21', '2023-01-13 09:38:21'),
+(27, 27, 30000, '2023-01-13 10:01:13', '2023-01-13 10:01:13'),
+(28, 28, 25000, '2023-01-13 10:03:56', '2023-01-13 10:03:56'),
+(29, 29, 30000, '2023-01-13 10:48:26', '2023-01-13 10:48:26'),
+(30, 30, 30000, '2023-01-13 10:50:40', '2023-01-13 10:50:40'),
+(31, 31, 30000, '2023-01-14 18:42:50', '2023-01-14 18:42:50'),
+(32, 32, 20000, '2023-01-15 22:41:10', '2023-01-15 22:41:10'),
+(33, 33, 30000, '2023-01-16 21:46:04', '2023-01-16 21:46:04'),
+(34, 34, 30000, '2023-01-21 04:11:51', '2023-01-21 04:11:51'),
+(35, 35, 25000, '2023-01-22 09:17:27', '2023-01-22 09:17:27'),
+(36, 36, 150000, '2023-01-23 21:23:19', '2023-01-23 21:23:19'),
+(37, 37, 30000, '2023-01-23 23:31:36', '2023-01-23 23:31:36');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int UNSIGNED NOT NULL,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2023_01_13_014929_create_clientes_table', 1),
+(5, '2023_01_13_020211_create_cuentas_table', 1),
+(6, '2023_01_13_023026_create_ventas_table', 1),
+(7, '2023_01_13_070705_create_informes_table', 1),
+(8, '2023_01_15_005314_create_formas_pagos_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` tinyint NOT NULL DEFAULT '1' COMMENT '0 admin 1 editor 2 text 3 suscritor',
+  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `type`, `active`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Administrador', 'derlis', 'admin@example.com', NULL, '$2y$10$SlQLa99m.uxjLZgfuklYM.g9Wf28C.NmMY11N9a99n0sDnvuhvuPK', 0, 1, NULL, '2023-01-15 01:23:25', '2023-01-15 01:24:01');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
+CREATE TABLE `ventas` (
+  `id` bigint UNSIGNED NOT NULL,
+  `cuenta_id` bigint UNSIGNED DEFAULT NULL,
+  `cliente_id` bigint UNSIGNED DEFAULT NULL,
+  `pago` double NOT NULL,
+  `status_pago` tinyint(1) NOT NULL DEFAULT '0',
+  `fecha_pago` date NOT NULL,
+  `vencimiento` date NOT NULL,
+  `pin_cuenta` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `forma_pago` bigint DEFAULT NULL,
+  `ref` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`id`, `cuenta_id`, `cliente_id`, `pago`, `status_pago`, `fecha_pago`, `vencimiento`, `pin_cuenta`, `forma_pago`, `ref`, `created_at`, `updated_at`) VALUES
+(5, 1, 1, 25000, 1, '2023-01-30', '2023-01-30', NULL, NULL, NULL, '2023-01-13 07:58:08', '2023-01-13 07:58:08'),
+(6, 2, 8, 25000, 1, '2023-01-12', '2023-02-12', NULL, NULL, NULL, '2023-01-13 08:15:55', '2023-01-13 08:15:55'),
+(7, 2, 9, 25000, 1, '2022-12-28', '2023-01-28', NULL, NULL, NULL, '2023-01-13 08:21:25', '2023-01-13 08:21:25'),
+(8, 5, 9, 20000, 1, '2022-12-24', '2023-01-24', NULL, NULL, NULL, '2023-01-13 08:23:16', '2023-01-13 08:23:16'),
+(9, 4, 36, 30000, 1, '2023-01-07', '2023-02-22', NULL, NULL, NULL, '2023-01-13 08:26:29', '2023-01-13 08:26:29'),
+(10, 4, 11, 30000, 1, '2023-01-09', '2023-02-09', '9010', NULL, NULL, '2023-01-13 08:31:23', '2023-01-13 08:31:23'),
+(11, 4, 13, 30000, 1, '2023-01-12', '2023-02-12', NULL, NULL, NULL, '2023-01-13 08:34:31', '2023-01-13 08:34:31'),
+(13, 6, 15, 30000, 1, '2022-12-31', '2023-01-31', NULL, NULL, NULL, '2023-01-13 08:42:04', '2023-01-13 08:42:04'),
+(15, 6, 16, 30000, 1, '2022-12-27', '2023-01-27', NULL, NULL, NULL, '2023-01-13 08:46:35', '2023-01-13 08:46:35'),
+(16, 6, 17, 30000, 1, '2022-12-29', '2023-01-29', NULL, NULL, NULL, '2023-01-13 08:48:55', '2023-01-13 08:48:55'),
+(17, 6, 14, 30000, 1, '2023-01-07', '2023-02-07', NULL, NULL, NULL, '2023-01-13 08:52:19', '2023-01-13 08:52:19'),
+(18, 2, 18, 20000, 1, '2023-01-05', '2023-02-05', NULL, NULL, NULL, '2023-01-13 09:01:23', '2023-01-13 09:01:23'),
+(19, 7, 20, 30000, 1, '2023-01-04', '2023-02-04', NULL, NULL, NULL, '2023-01-13 09:04:40', '2023-01-13 09:04:40'),
+(20, 3, 21, 20000, 1, '2022-12-26', '2023-01-26', NULL, NULL, NULL, '2023-01-13 09:08:09', '2023-01-13 09:08:09'),
+(21, 3, 22, 25000, 1, '2022-12-23', '2023-01-23', NULL, NULL, NULL, '2023-01-13 09:09:27', '2023-01-13 09:09:27'),
+(22, 5, 23, 25000, 1, '2023-01-10', '2023-02-10', NULL, NULL, NULL, '2023-01-13 09:13:43', '2023-01-13 09:13:43'),
+(23, 4, 24, 30000, 1, '2023-01-11', '2023-02-11', NULL, NULL, NULL, '2023-01-13 09:26:20', '2023-01-13 09:26:20'),
+(24, 5, 25, 20000, 1, '2023-01-28', '2023-01-28', NULL, NULL, NULL, '2023-01-13 09:29:45', '2023-01-13 09:29:45'),
+(25, 2, 26, 25000, 1, '2023-01-04', '2023-02-04', NULL, NULL, NULL, '2023-01-13 09:32:17', '2023-01-13 09:32:17'),
+(26, 1, 12, 30000, 1, '2023-01-12', '2023-02-12', '1890', NULL, NULL, '2023-01-13 09:38:21', '2023-01-13 09:38:21'),
+(27, 7, 27, 30000, 1, '2023-01-07', '2023-02-07', NULL, NULL, NULL, '2023-01-13 10:01:13', '2023-01-13 10:01:13'),
+(28, 3, 28, 25000, 1, '2022-12-31', '2023-01-31', NULL, NULL, NULL, '2023-01-13 10:03:56', '2023-01-13 10:03:56'),
+(29, 7, 19, 30000, 1, '2023-01-04', '2023-02-04', NULL, NULL, NULL, '2023-01-13 10:48:26', '2023-01-13 10:48:26'),
+(30, 7, 29, 30000, 1, '2023-01-04', '2023-02-09', NULL, NULL, NULL, '2023-01-13 10:50:40', '2023-01-13 10:50:40'),
+(31, 1, 30, 30000, 1, '2023-01-14', '2023-02-14', '1890', NULL, NULL, '2023-01-14 18:42:50', '2023-01-14 18:42:50'),
+(32, 8, 31, 20000, 1, '2023-01-15', '2023-02-15', 'sin pin', 2, 'Giros tigo', '2023-01-15 22:41:10', '2023-01-15 22:41:10'),
+(33, 1, 32, 30000, 1, '2023-01-16', '2023-02-16', '1890', 2, 'giros tigo', '2023-01-16 21:46:04', '2023-01-16 21:46:04'),
+(34, 4, 33, 30000, 1, '2023-01-20', '2023-02-20', '5690', 1, 'efectivo', '2023-01-21 04:11:51', '2023-01-21 04:11:51'),
+(35, 2, 34, 25000, 1, '2023-01-22', '2023-02-22', 'sin pin', 3, 'a banco familiar', '2023-01-22 09:17:27', '2023-01-22 09:17:27'),
+(36, 9, 38, 150000, 1, '2023-01-23', '2023-06-23', '5678', 2, 'Giros tigo', '2023-01-23 21:23:19', '2023-01-23 21:23:19'),
+(37, 1, 2, 30000, 1, '2023-01-23', '2023-02-23', '1402', 3, 'banco familiar', '2023-01-23 23:31:35', '2023-01-23 23:31:35');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `clientes_doc_unique` (`doc`);
+
+--
+-- Indices de la tabla `cuentas`
+--
+ALTER TABLE `cuentas`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `cuentas_email_cuenta_unique` (`email_cuenta`);
+
+--
+-- Indices de la tabla `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indices de la tabla `formas_pagos`
+--
+ALTER TABLE `formas_pagos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `informes`
+--
+ALTER TABLE `informes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `informes_venta_id_foreign` (`venta_id`);
+
+--
+-- Indices de la tabla `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_username_unique` (`username`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- Indices de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ventas_cuenta_id_foreign` (`cuenta_id`),
+  ADD KEY `ventas_cliente_id_foreign` (`cliente_id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT de la tabla `cuentas`
+--
+ALTER TABLE `cuentas`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `formas_pagos`
+--
+ALTER TABLE `formas_pagos`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `informes`
+--
+ALTER TABLE `informes`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT de la tabla `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `informes`
+--
+ALTER TABLE `informes`
+  ADD CONSTRAINT `informes_venta_id_foreign` FOREIGN KEY (`venta_id`) REFERENCES `ventas` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD CONSTRAINT `ventas_cliente_id_foreign` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `ventas_cuenta_id_foreign` FOREIGN KEY (`cuenta_id`) REFERENCES `cuentas` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+COMMIT;
