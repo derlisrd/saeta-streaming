@@ -11,9 +11,9 @@ class MovimientosController extends Controller
 
     public function index()
     {
-
+        $cajas_nombre= '';
         $movimientos = Movimiento::all();
-        return view('Movimientos.index',compact('movimientos'));
+        return view('Movimientos.index',compact('movimientos','cajas_nombre'));
     }
 
     public function movimientos_caja(Request $r){

@@ -74,21 +74,24 @@
         </div>
     </div>
     <div class="col-12 col-sm-12 col-md-3">
-        <div class="form-group">
+        <div class="form-floating mt-4">
             <select class="form-select my-4" name="caja_id" id="caja_id">
-              @foreach ($cajas as $c)
-              <option value="{{ $c->id }}">{{ $c->nombre }}</option>
-              @endforeach
+                <option value="" disabled>Elija un caja por favor</option>
+                @foreach ($cajas as $c)
+                <option value="{{ $c->id }}">{{ $c->nombre }}</option>
+                @endforeach
             </select>
+            <label for="caja_id">Seleccione caja: </label>
         </div>
     </div>
     <div class="col-12 col-sm-12 col-md-3">
-        <div class="form-group">
+        <div class="form-floating mt-4">
             <select class="form-select my-4" name="forma_pago" id="forma_pago">
               @foreach ($formas as $f)
               <option value="{{ $f->id }}">{{ $f->metodo }}</option>
               @endforeach
             </select>
+            <label for="caja_id">Seleccione forma de pago: </label>
           </div>
     </div>
     <div class="col-12 col-sm-12 col-md-3">

@@ -59,6 +59,10 @@
             Swal.fire('Borrado!','Tristin ya se eliminó, chau','success')
         @endif
 
+        @if (session('renovado'))
+            Swal.fire('renovado!','Cuota renovada','success')
+        @endif
+
     </script>
     <script>
         $('.formulario-eliminar').submit(function(e){

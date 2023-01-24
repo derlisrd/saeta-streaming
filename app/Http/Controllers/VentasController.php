@@ -73,7 +73,8 @@ class VentasController extends Controller
 
     public function renovar($id){
         $venta = Venta::find($id);
-        return view('Ventas.renovar',compact('venta'));
+        $cajas = Caja::all();
+        return view('Ventas.renovar',compact('venta','cajas'));
     }
 
 
@@ -82,19 +83,32 @@ class VentasController extends Controller
             'fecha_pago'=>['required','date'],
             'vencimiento'=>['required','date'],
             'pago'=>['required','numeric'],
+            'caja_id'=>['required']
         ]);
         $id = $r->id;
         $venta = Venta::find($id);
+        $venta->pago = $r->pago;
         $venta->fecha_pago = $r->fecha_pago;
         $venta->vencimiento = $r->vencimiento;
+        $venta->pin_cuenta = $r->pin_cuenta;
         $venta->update();
 
-        Informe::create([
-            'valor'=>$r->pago,
-            'venta_id'=>$id
+        $caja = Caja::find($r->caja_id);
+
+        $caja->monto += $r->pago;
+        $caja->update();
+
+
+        Movimiento::create([
+            'caja_id'=>$r->caja_id,
+            'monto'=>$r->pago,
+            'fecha'=>$r->fecha_pago,
+            'tipo_movimiento'=>1,
+            'descripcion'=>'Renovación de perfil de '.$venta->cuenta->nombre
         ]);
 
-        return redirect()->route('ventas');
+
+        return redirect()->route('ventas')->with('renovado',true);
     }
 
 
