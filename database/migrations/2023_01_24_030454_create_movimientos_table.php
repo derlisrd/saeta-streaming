@@ -17,7 +17,7 @@ class CreateMovimientosTable extends Migration
             $table->id();
             $table->foreignId('caja_id')->nullable()->constrained('cajas')->cascadeOnUpdate()->nullOnDelete();
             $table->string('descripcion');
-            $table->float('monto');
+            $table->float('monto',15);
             $table->tinyInteger('tipo_movimiento')->comment('0 egreso 1 ingreso');
             $table->date('fecha');
             $table->timestamps();

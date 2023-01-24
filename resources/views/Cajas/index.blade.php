@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-12">
-            <h2>Cajas</h2>
+            <h2> {{ $cajas_nombre }} </h2>
             <a href="{{ route('cajas.create') }}" class="btn btn-primary">Registrar</a>
         </div>
         <div class="col-12">
@@ -27,7 +27,7 @@
                             <td>{{ $c->nombre }}</td>
                             <td>{{ number_format($c->monto,0,'','.') }}</td>
                             <td>
-
+                                <a href="{{ route('movimientos.caja',$c->id) }}" class="btn btn-info">Ver movimientos</a>
                             </td>
                         </tr>
                     @endforeach

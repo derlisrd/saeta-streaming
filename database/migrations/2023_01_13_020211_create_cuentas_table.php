@@ -17,8 +17,8 @@ class CreateCuentasTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('email_cuenta')->unique();
-            $table->double('valor_unitario')->nullable();
-            $table->double('valor_total')->nullable();
+            $table->float('valor_unitario',15)->nullable();
+            $table->float('valor_total',15)->nullable();
             $table->string('password');
             $table->boolean('pago_status')->default(0);
             $table->date('fecha_pago');

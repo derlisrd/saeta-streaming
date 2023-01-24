@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Caja;
 use App\Models\Cuenta;
+use App\Models\Movimiento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -50,7 +52,42 @@ class CuentasController extends Controller
     }
 
     public function create(){
+
         return view('Cuentas.create');
+    }
+
+    public function pagar(){
+        $cajas = Caja::all();
+        return view('Cuentas.pagar',compact('cajas'));
+    }
+    public function pagar_store(Request $r){
+        $r->validate([
+            'cuenta_id'=> ['required'],
+            'monto'=>['required','numeric'],
+            'caja_id'=>['required'],
+            'fecha_pago'=>['required','date'],
+            'vencimiento_pago'=>['required','date'],
+        ]);
+
+        $caja = Caja::find($r->caja_id);
+        $caja->monto -= $r->monto;
+        $caja->update();
+
+        $cuenta = Cuenta::find($r->cuenta_id);
+        $cuenta->fecha_pago = $r->fecha_pago;
+        $cuenta->vencimiento_pago = $r->vencimiento_pago;
+        $cuenta->update();
+
+        Movimiento::create([
+            'caja_id'=>$r->caja_id,
+            'monto'=>$r->monto,
+            'fecha'=>$r->fecha_pago,
+            'descripcion'=> 'Pago de cuenta '.$cuenta->nombre. ' '.$cuenta->email_cuenta,
+            'tipo_movimiento'=>0
+        ]);
+
+        return redirect()->route('cuentas')->with('Paid',true);
+
     }
 
 

@@ -16,7 +16,7 @@ class CreateInformesTable extends Migration
         Schema::create('informes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('venta_id')->nullable()->constrained('ventas')->cascadeOnUpdate()->nullOnDelete();
-            $table->double('valor');
+            $table->float('valor',15);
             $table->timestamps();
         });
     }

@@ -80,7 +80,7 @@
               <option value="{{ $c->id }}">{{ $c->nombre }}</option>
               @endforeach
             </select>
-          </div>
+        </div>
     </div>
     <div class="col-12 col-sm-12 col-md-3">
         <div class="form-group">

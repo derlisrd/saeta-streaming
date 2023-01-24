@@ -17,7 +17,7 @@ class CreateVentasTable extends Migration
             $table->id();
             $table->foreignId('cuenta_id')->nullable()->constrained('cuentas')->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('cliente_id')->nullable()->constrained('clientes')->cascadeOnUpdate()->nullOnDelete();
-            $table->double('pago');
+            $table->float('pago',15);
             $table->boolean('status_pago')->default(0);
             $table->date('fecha_pago');
             $table->date('vencimiento');

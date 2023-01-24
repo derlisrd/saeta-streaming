@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 class CajasController extends Controller
 {
     public function index(){
+        $cajas_nombre = 'Todas las cajas';
         $cajas = Caja::all();
-        return view('Cajas.index',compact('cajas'));
+        return view('Cajas.index',compact('cajas','cajas_nombre'));
     }
     public function create(){
         return view('Cajas.create');

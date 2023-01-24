@@ -45,12 +45,16 @@ Route::group(['prefix'=>'administrador','middleware'=>['auth']],function(){
 
 
     Route::get('movimientos',[MovimientosController::class,'index'])->name('movimientos');
+    Route::get('movimientos/caja/{id}',[MovimientosController::class,'movimientos_caja'])->name('movimientos.caja');
 
     Route::get('cuentas',[CuentasController::class,'index'])->name('cuentas');
     Route::get('cuentas/create',[CuentasController::class,'create'])->name('cuentas.create');
     Route::post('cuentas/create',[CuentasController::class,'store'])->name('cuentas.store');
     Route::get('cuentas/edit/{id}',[CuentasController::class,'edit'])->name('cuentas.edit');
     Route::put('cuentas/update',[CuentasController::class,'update'])->name('cuentas.update');
+
+    Route::get('cuentas/pagar/{id}',[CuentasController::class,'pagar'])->name('cuentas.pagar');
+    Route::post('cuentas/pagar',[CuentasController::class,'pagar_store'])->name('cuentas.pagar.store');
 
     Route::get('cuentas/utilizadas/{id}',[CuentasController::class,'cuentas_utilizadas'])->name('cuentas.utilizadas');
 
