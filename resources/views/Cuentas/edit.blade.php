@@ -81,6 +81,12 @@
             </div>
             <div class="col-12 col-sm-12 col-md-6">
                 <div class="form-floating mt-4">
+                    <input autocomplete="off" type="tel" placeholder="Telefono" name="telefono" required value="{{ old('telefono') }}" class="form-control" />
+                    <label>Telefono:</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6">
+                <div class="form-floating mt-4">
                     <input autocomplete="off" type="number" placeholder="Cuentas disponibles" disabled name="cuentas_disponibles" required value="{{ old('cuentas_disponibles') ?? $cuenta->cuentas_disponibles }}" class="form-control" />
                     <label>Cuentas disponibles</label>
                 </div>

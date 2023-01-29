@@ -19,10 +19,15 @@ class VentasController extends Controller
     }
 
     public function create(){
-
         $formas = FormasPago::all();
         $cajas = Caja::all();
         return view('Ventas.create',compact('formas','cajas'));
+    }
+    public function edit(Request $r){
+        $formas = FormasPago::all();
+        $cajas = Caja::all();
+        $venta = Venta::find($r->id);
+        return view('Ventas.edit',compact('formas','cajas','venta'));
     }
 
     public function store (Request $r){

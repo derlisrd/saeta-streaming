@@ -43,6 +43,7 @@ class CuentasController extends Controller
         $c->password=$r->password;
         $c->pago_status=$r->pago_status;
         $c->fecha_pago=$r->fecha_pago;
+        $c->telefono = $r->telefono;
         $c->vencimiento_pago=$r->vencimiento_pago;
 
         $c->update();
@@ -114,7 +115,8 @@ class CuentasController extends Controller
             'pago_status'=>$r->pago_status,
             'fecha_pago'=>$r->fecha_pago,
             'vencimiento_pago'=>$r->vencimiento_pago,
-            'cuentas_disponibles'=>$r->cuentas_disponibles
+            'cuentas_disponibles'=>$r->cuentas_disponibles,
+            'telefono'=>$r->telefono
         ];
 
         Cuenta::create($datos);

@@ -38,6 +38,7 @@
                         @endif
                     </td>
                     <td>
+                        <a href="{{ route('ventas.edit',$v->id) }}" class="btn btn-info">Edit</a>
                         @if($v->vencimiento< now())
                         <a href="{{ route('ventas.renovar',$v->id) }}" class="btn btn-warning">Renovar</a>
                         <form action="{{ route('ventas.destroy',$v->id) }}" class="d-inline formulario-eliminar" method="post" >

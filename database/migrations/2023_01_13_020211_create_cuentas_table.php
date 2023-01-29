@@ -22,6 +22,7 @@ class CreateCuentasTable extends Migration
             $table->string('password');
             $table->boolean('pago_status')->default(0);
             $table->date('fecha_pago');
+            $table->string('telefono')->nullable();
             $table->date('vencimiento_pago');
             $table->integer('cuentas_disponibles')->nullable();
             $table->timestamps();

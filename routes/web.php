@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::view('/','Public.landing');
+
 Route::redirect('/login','/administrador/home');
 Route::view('/administrador','Auth.login')->name('login')->middleware('guest');
 Route::post('/login',[LoginController::class,'login'])->name('login.submit');
@@ -66,7 +68,7 @@ Route::group(['prefix'=>'administrador','middleware'=>['auth']],function(){
     Route::get('ventas/renovar/{id}',[VentasController::class,'renovar'])->name('ventas.renovar');
     Route::post('ventas/renovar',[VentasController::class,'renovar_store'])->name('ventas.renovar.store');
     Route::delete('ventas/{id}',[VentasController::class,'destroy'])->name('ventas.destroy');
-
+    Route::get('ventas/{id}',[VentasController::class,'edit'])->name('ventas.edit');
 
     Route::get('/users',[UsersController::class,'index'])->name('users');
     Route::get('/users/create',[UsersController::class,'create'])->name('users.create');
