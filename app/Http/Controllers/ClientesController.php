@@ -21,7 +21,7 @@ class ClientesController extends Controller
         $count = Cliente::all()->count();
         $pages = round( $count / $limit);
 
-        $nextPage = $currentPage<$pages ? $currentPage + 1 : null;
+        $nextPage = $currentPage<=$pages ? $currentPage + 1 : null;
         $prevPage = ($currentPage - 1)>0 ? $currentPage - 1 : null;
 
         return view('Clientes.index',compact('clientes','nextPage','prevPage'));

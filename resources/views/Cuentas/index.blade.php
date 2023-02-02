@@ -20,6 +20,7 @@
                 <th scope="col">Unitario</th>
                 <th scope="col">Total</th>
                 <th scope="col">Vencimiento</th>
+                <th scope="col">Tel</th>
                 <th scope="col">Disponibles</th>
                 <th scope="col">Opciones</th>
             </tr>
@@ -39,6 +40,7 @@
                             <span class="badge bg-success"> Todo ok</span>
                         @endif
                     </td>
+                    <td>{{ $c->telefono }}</td>
                     <td> @if( $c->cuentas_disponibles ==0 ) <span class="badge bg-danger">No disponible</span>  @else <span class="badge bg-success"> {{ $c->cuentas_disponibles }} Disponibles</span>  @endif </td>
                     <td>
                         <a href="{{ route('cuentas.utilizadas',$c->id) }}" class="btn btn-info btn-sm">Ver</a>
