@@ -17,10 +17,32 @@
     <link href="{{ URL('assets/css/sweetalert2.min.css') }}" rel="stylesheet">
     @livewireStyles
     @yield('styles')
+
+    <style>
+
+        .page    { display: none; padding: 0 0.5em; }
+        .page h1 { font-size: 2em; line-height: 1em; margin-top: 1.1em; font-weight: bold; }
+        .page p  { font-size: 1.5em; line-height: 1.275em; margin-top: 0.15em; }
+
+        #loading {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100vw;
+        height: 100vh;
+        background-color: #f1f1f1;
+        background-image: url("{{ URL('assets/img/loading.svg') }}");
+        background-repeat: no-repeat;
+        background-position: center;
+        }
+    </style>
+
 </head>
 <body>
-
-    <div class='dashboard'>
+    <div id="loading"></div>
+    <div class='dashboard page'>
         @include('Layout.menu')
 
         <div class='dashboard-app'>
@@ -38,8 +60,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
 
@@ -49,5 +69,29 @@
     <script src="{{ URL('assets/js/sweetalert2.min.js') }}"></script>
     @livewireScripts
     @yield('scripts')
+
+
+    <script>
+        function onReady(callback) {
+        var intervalId = window.setInterval(function() {
+            if (document.getElementsByTagName('body')[0] !== undefined) {
+            window.clearInterval(intervalId);
+            callback.call(this);
+            }
+        }, 300);
+        }
+
+        function setVisible(selector, visible) {
+        document.querySelector(selector).style.display = visible ? 'block' : 'none';
+        }
+
+        onReady(function() {
+        setVisible('.page', true);
+        setVisible('#loading', false);
+        });
+    </script>
+
+
+
 </body>
 </html>

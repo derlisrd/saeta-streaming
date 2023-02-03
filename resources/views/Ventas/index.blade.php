@@ -38,6 +38,7 @@
                         @endif
                     </td>
                     <td>
+                        <a href="{{ route('cuentas.utilizadas',$v->cuenta->id) }}" class="btn btn-secondary">Ver cuenta</a>
                         <a href="{{ route('ventas.edit',$v->id) }}" class="btn btn-info">Edit</a>
                         @if($v->vencimiento< now())
                         <a href="{{ route('ventas.renovar',$v->id) }}" class="btn btn-warning">Renovar</a>
@@ -62,6 +63,10 @@
 
         @if (session('renovado'))
             Swal.fire('renovado!','Cuota renovada','success')
+        @endif
+
+        @if (session('updated'))
+            Swal.fire('Actualizado!','Venta actualizada','success')
         @endif
 
     </script>

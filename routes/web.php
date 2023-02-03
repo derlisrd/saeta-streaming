@@ -71,6 +71,7 @@ Route::group(['prefix'=>'administrador','middleware'=>['auth']],function(){
     Route::post('ventas/renovar',[VentasController::class,'renovar_store'])->name('ventas.renovar.store');
     Route::delete('ventas/{id}',[VentasController::class,'destroy'])->name('ventas.destroy');
     Route::get('ventas/{id}',[VentasController::class,'edit'])->name('ventas.edit');
+    Route::put('ventas/{id}',[VentasController::class,'update'])->name('ventas.update');
 
     Route::get('/users',[UsersController::class,'index'])->name('users');
     Route::get('/users/create',[UsersController::class,'create'])->name('users.create');

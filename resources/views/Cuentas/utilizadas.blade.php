@@ -5,8 +5,8 @@
 
 @section('container')
 
-    <h2>Cuenta: {{ $cuenta->email_cuenta }} {{ $cuenta->nombre }}</h2>
-
+    <p>Cuenta: {{ $cuenta->email_cuenta }} {{ $cuenta->nombre }}</p>
+    <p>Clave: {{ $cuenta->password }}</p>
 
 
     <a href="{{ route('cuentas') }}" class="btn btn-info">Volver</a>

@@ -25,6 +25,7 @@ class CreateVentasTable extends Migration
             $table->bigInteger('forma_pago')->nullable();
             $table->string('ref')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

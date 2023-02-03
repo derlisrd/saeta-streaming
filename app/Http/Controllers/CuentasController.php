@@ -13,7 +13,7 @@ class CuentasController extends Controller
     //
 
     public function index(){
-        $cuentas = Cuenta::all();
+        $cuentas = Cuenta::orderBy('nombre','asc')->get();
         return view('Cuentas.index',compact('cuentas'));
     }
 

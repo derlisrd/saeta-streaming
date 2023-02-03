@@ -33,6 +33,26 @@ class VentasController extends Controller
         return view('Ventas.edit',compact('formas','cajas','venta'));
     }
 
+    public function update(Request $r,$id){
+
+        $r->validate([
+            'fecha_pago'=>['required','date'],
+            'vencimiento'=>['required','date'],
+        ]);
+
+        $venta = Venta::find($id);
+        $venta->fecha_pago = $r->fecha_pago;
+        $venta->vencimiento = $r->vencimiento;
+        $venta->pin_cuenta = $r->pin_cuenta;
+        $venta->update();
+
+        return redirect()->route('ventas')->with('updated',true);
+    }
+
+
+
+
+
     public function store (Request $r){
         $r->validate([
             'cliente_id'=> ['required'],
@@ -122,11 +142,12 @@ class VentasController extends Controller
 
 
 
+
     public function destroy($id){
         $c = Venta::find($id);
         $cuenta_id = $c->cuenta_id;
         $cuenta = Cuenta::find($cuenta_id);
-        $cuenta->cuentas_disponibles = $cuenta->cuentas_disponibles + 1;
+        $cuenta->cuentas_disponibles += 1;
         $cuenta->update();
         $c->delete();
         return redirect()->route('ventas')->with('eliminado',true);
