@@ -29,7 +29,7 @@
                     <td>{{ number_format($v->pago,0,'','.') }}</td>
                     <td>{{ date('d-m-Y', strtotime($v->vencimiento));  }}</td>
                     <td>{{ $v->pin_cuenta }}</td>
-                    <td>{{ $v->forma_pago . ' ' . $v->ref }}</td>
+                    <td>{{ $tipos[$v->forma_pago ]. ' ' . $v->ref }}</td>
                     <td>
                         @if($v->vencimiento< now())
                             <span class="badge bg-danger">Vencido</span>

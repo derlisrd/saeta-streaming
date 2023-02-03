@@ -16,7 +16,7 @@ class CreateCuentasTable extends Migration
         Schema::create('cuentas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('email_cuenta')->unique();
+            $table->string('email_cuenta');
             $table->float('valor_unitario',15)->nullable();
             $table->float('valor_total',15)->nullable();
             $table->string('password');

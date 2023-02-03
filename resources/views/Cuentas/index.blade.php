@@ -48,7 +48,11 @@
                         <a href="{{ route('cuentas.pagar',$c->id) }}" class="btn btn-info btn-sm">Pagar</a>
 
                         <a href="{{ route('cuentas.edit',$c->id) }}" class="btn btn-warning btn-sm">Editar</a>
-                        <a href="#" class="btn btn-danger btn-sm">Borrar</a>
+                        <form action="{{ route('cuentas.destroy',$c->id) }}" class="d-inline formulario-eliminar" method="post" >
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -57,11 +61,30 @@
 
 
 @endsection
+
 @section('scripts')
 <script>
     @if (session('Paid'))
         Swal.fire('Pagado!', 'Cuenta ha sido pagada', 'success')
     @endif
-</script>
+
+        @if (session('deleted'))
+            Swal.fire('Borrado!','Tu cuenta ha sido borrada','success')
+        @endif
+    </script>
+    <script>
+        $('.formulario-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+            title: 'Borrar',
+            text:'Desea borrar esta cuenta?',
+            showCancelButton: true,
+            }).then((result) => {
+            if (result.isConfirmed) {
+                this.submit();
+            }
+            })
+        });
+    </script>
 
 @endsection

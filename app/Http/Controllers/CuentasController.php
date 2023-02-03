@@ -141,4 +141,10 @@ class CuentasController extends Controller
 
         return view('Cuentas.utilizadas',compact('utilizadas','cuenta'));
     }
+
+    public function destroy($id){
+        $cuenta = Cuenta::find($id);
+        $cuenta->delete();
+        return redirect()->route('cuentas')->with('deleted',true);
+    }
 }

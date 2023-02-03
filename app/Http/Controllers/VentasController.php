@@ -15,7 +15,10 @@ class VentasController extends Controller
     public function index(){
 
         $ventas = Venta::orderBy('vencimiento', 'asc')->get();
-        return view('Ventas.index',compact('ventas'));
+
+        $tipos = ['1'=>'Efectivo','2'=>'Giro','3'=>'Transferencia'];
+
+        return view('Ventas.index',compact('ventas','tipos'));
     }
 
     public function create(){

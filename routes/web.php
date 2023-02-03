@@ -55,6 +55,8 @@ Route::group(['prefix'=>'administrador','middleware'=>['auth']],function(){
     Route::get('cuentas/edit/{id}',[CuentasController::class,'edit'])->name('cuentas.edit');
     Route::put('cuentas/update',[CuentasController::class,'update'])->name('cuentas.update');
 
+    Route::delete('cuentas/{id}',[CuentasController::class,'destroy'])->name('cuentas.destroy');
+
     Route::get('cuentas/pagar/{id}',[CuentasController::class,'pagar'])->name('cuentas.pagar');
     Route::post('cuentas/pagar',[CuentasController::class,'pagar_store'])->name('cuentas.pagar.store');
 
